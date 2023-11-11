@@ -1,9 +1,44 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categorized Vertical Grid Layout</title>
+<link rel="stylesheet" href="./frontend/css/styles.css">
+</head>
+<body>
 
-    </head>
-    <body>
-        <script src="script.js"></script>
-        <h1>hello</h1>
-    </body>
+<header>
+
+</header>
+
+<main>
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Enter keywords" oninput="filterGridItems()">
+  </div>
+
+  <div class="categories-container">
+<!-- TODO DYNAMIC -->
+    <section id="prelims" class="category">
+      <h2>Prelims</h2>
+      <div class="grid"></div>
+    </section>
+
+    <section id="midterms" class="category">
+      <h2>Midterms</h2>
+      <div class="grid"></div>
+    </section>
+
+    <section id="finals" class="category">
+        <h2>Finals</h2>
+        <div class="grid"></div>
+      </section>
+
+    <!-- Add more sections for each category here -->
+  </div>
+
+</main>
+
+<script src="./frontend/js/script.js"></script>
+</body>
 </html>

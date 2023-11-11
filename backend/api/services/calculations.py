@@ -23,16 +23,18 @@ def perform_calculation(numbers, method):
 def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
     steps = []
     func = lambda x: eval(func_str)
+    err = 0
     for i in range(max_iter):
         mid = (a + b) / 2
-        steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'f(mid)': func(mid)})
+        steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'f(mid)': func(mid), 'error': err})
 
         if func(mid) * func(a) < 0:
             b = mid
         else:
             a = mid
 
-        if abs(b - a) < tol:
+        err = abs(b - a)
+        if err < tol:
             break
 
     for a in steps:

@@ -1,4 +1,9 @@
+import * as api from"./apiHelper.js"
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    console.log(api.bisect());
+
     const categories = {
       prelims: [
         { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method' },

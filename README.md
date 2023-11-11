@@ -11,3 +11,7 @@ fuck
 3. install flask cors din `pip install flask-cors`
 
 4. run main.py
+
+5. open index.html
+
+6. fuck you

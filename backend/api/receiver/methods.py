@@ -26,6 +26,6 @@ def bisection():
     print("LOWER BOUND: " + str(lower_bound))
     print("UPPER B: " + str(upper_bound))
 
-    print(bisection_method(function, lower_bound, upper_bound))
+    result = bisection_method(function, lower_bound, upper_bound)
     # result = perform_calculation(numbers, method)
     # return jsonify({"result": result})

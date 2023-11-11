@@ -20,8 +20,9 @@ def perform_calculation(numbers, method):
 # – else if f(t) *f (b) < 0, there exist a root between t and b
 # Repeat above three steps until f(t) = 0.
 
-def bisection_method(func, a, b, tol=1e-5, max_iter=50):
+def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
     steps = []
+    func = lambda x: eval(func_str)
     for i in range(max_iter):
         mid = (a + b) / 2
         steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'f(mid)': func(mid)})
@@ -33,6 +34,8 @@ def bisection_method(func, a, b, tol=1e-5, max_iter=50):
 
         if abs(b - a) < tol:
             break
-    for i in steps:
-        print(i)
+
+    for a in steps:
+        print(a)
     return steps
+

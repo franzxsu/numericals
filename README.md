@@ -2,6 +2,10 @@
 bullshit for CSM316
 fuck 
 
+this is a simple application 
+it uses html css js and python with flask for api
+what else do u need to know?
+
 # usage
 
 1. i used pycharm for this idk, baka pede din naman gamitin vscode, basta install

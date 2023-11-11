@@ -19,7 +19,7 @@ body, html {
   
   .categories-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 20px;
   }
   

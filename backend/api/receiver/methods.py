@@ -1,3 +1,5 @@
+# reponsible for everything like getting numbers from the client to returning number (IN JSON FORMAT) the ano the result
+
 from flask import Blueprint, request, jsonify
 from ..services.calculations import perform_calculation
 

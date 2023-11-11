@@ -2,14 +2,14 @@
 
 # https://towardsdatascience.com/root-finding-methods-from-scratch-in-python-84040c81a8ba?gi=22cd7608efb5
 # https://www.stratascratch.com/blog/8-python-libraries-for-math-data-analysis-ml-and-dl/#:~:text=These%20libraries%20include%20NumPy%2C%20SciPy,to%20build%20and%20train%20models.
-from calculations_helper import *
+# from calculations_helper import *
 
 
 def perform_calculation(numbers, method):
     if method == 'sum':
-        return get_sum(numbers)
+        return sum(numbers)
     elif method == 'average':
-        return get_sum(numbers) / len(numbers)
+        return sum(numbers) / len(numbers)
     else:
         return None
 
@@ -24,7 +24,7 @@ def bisection_method(func, a, b, tol=1e-5, max_iter=50):
     steps = []
     for i in range(max_iter):
         mid = (a + b) / 2
-        steps.append({'iteration': i, 'a': a, 'b': b, 'mid': mid, 'f(mid)': func(mid)})
+        steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'f(mid)': func(mid)})
 
         if func(mid) * func(a) < 0:
             b = mid

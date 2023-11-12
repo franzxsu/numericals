@@ -13,6 +13,7 @@ def perform_calculation(numbers, method):
     else:
         return None
 
+
 # Find two points, say a and b such that a < b and f(a)* f(b) < 0
 # Find the midpoint of a and b, say “t”
 # t is the root of the given function if f(t) = 0; else follow the next step
@@ -41,16 +42,23 @@ def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
         print(a)
     return steps
 
-def newton_raphson_method(func, deriv, x0, tol=1e-5, max_iter=100):
+
+def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
     steps = []
     x = x0
-    for i in range(max_iter):
-        x_new = x - func(x) / deriv(x)
-        steps.append({'iteration': i, 'x': x, 'f(x)': func(x), 'f\'(x)': deriv(x)})
+    deriv = get_derivative(func)
+    error = 0;
 
-        if abs(x_new - x) < tol:
+    for i in range(max_iter):
+        f_x = func.subs('x', x)
+        f_prime_x = deriv.subs('x', x)
+
+        x_new = x - f_x / f_prime_x
+        steps.append({'iteration': i, 'x': x, 'f(x)': f_x, 'f\'(x)': f_prime_x, 'error': eval(str(error))})
+
+        error = get_error(x_new, x)
+        if error < tol:
             break
 
         x = x_new
-
     return steps

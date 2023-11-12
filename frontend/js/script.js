@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const categories = {
       prelims: [
-        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method' },
+        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: 'bisection.html'},
         { keywords: 'linear interpolation', text: 'Linear Interpolation Method' },
         { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration' },
         { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method' },
@@ -40,9 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const gridContainer = document.querySelector(`#${categoryId} .grid`);
     items.forEach(item => {
       const div = document.createElement('div');
+      const link = document.createElement('a')
+      link.href=item.href;
+      link.innerHTML=item.text;
       div.className = 'grid-item';
-      div.textContent = item.text;
       div.setAttribute('data-keywords', item.keywords.toLowerCase());
+      div.appendChild(link);
+      
       gridContainer.appendChild(div);
     });
   }

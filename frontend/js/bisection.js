@@ -24,6 +24,7 @@ async function calculateButtonClicked(){
 }
 function populateTable(res){
     const tableBody = document.getElementById("resultTable");
+    tableBody.innerHTML = "";
     console.log(res);
     for (const item of res){
         const newRow = document.createElement('tr');

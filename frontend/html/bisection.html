@@ -16,19 +16,19 @@
         <div class="input-area">
             <div class="input-group">
                 <label for="function">f(x):</label>
-                <input type="text" id="function" placeholder="2x^5 - cos(x) - x * exp(x)">
+                <input type="text" id="function" placeholder="2x^5 - cos(x) - x * exp(x)" value="x^2-1">
             </div>
             <div class="input-group">
                 <label for="lowerbound">lower bound:</label>
-                <input type="number" id="lowerbound" placeholder="1">
+                <input type="text" id="lowerbound" placeholder="1" value="1">
             </div>
             <div class="input-group">
                 <label for="upperbound">upper bound:</label>
-                <input type="number" id="upperbound" placeholder="2">
+                <input type="text" id="upperbound" placeholder="2" value="2">
             </div>
             <div class="input-group">
                 <label for="error">error:</label>
-                <input type="text" id="error" placeholder="0.0005">
+                <input type="text" id="error" placeholder="0.0005" value="0.0005">
             </div>
             <div class="button-group">
                 <button id="calculate">CALCULATE</button>
@@ -47,7 +47,7 @@
                     <th>error</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="resultTable">
             <!-- <tr>
                 <td>asd</td>
                 <td>asd</td>

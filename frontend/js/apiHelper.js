@@ -25,23 +25,25 @@ export function getAns(nums, operation){
         ub: 2
  */
 
-export function bisect(func, lower, upper, error){
-
-
-    console.log(func+lower+upper+error);
-    fetch('http://127.0.0.1:5000/bisection', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        function: func,
-        lb: lower,
-        ub: upper,
-        error: error
-    }),
+export function bisect(func, lower, upper, error) {
+    return fetch('http://127.0.0.1:5000/bisection', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            function: func,
+            lb: lower,
+            ub: upper,
+            error: error
+        }),
     })
     .then(response => response.json())
-    .then(data => console.log('Result:', data.result))
-    .catch((error) => console.error('Error:', error));
+    .then(data => {
+        return data.result;
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        throw error;
+    });
 }

@@ -20,11 +20,35 @@ async function calculateButtonClicked(){
     console.log(error);
     
     const result = await calculate.bisection(func, lowerBound, upperBound, error);
-    console.log(result);
     populateTable(result);
 }
 function populateTable(res){
-    const results = JSON.parse(res);
-    resultTable=document.getElementById("resultTable");
-    console.log(results)
+    const tableBody = document.getElementById("resultTable");
+    console.log(res);
+    for (const item of res){
+        const newRow = document.createElement('tr');
+        newRow.classList.add("row");
+        const iteration = document.createElement('td');
+        const a = document.createElement('td');
+        const b = document.createElement('td');
+        const midpoint = document.createElement('td');
+        const funcmidpoint = document.createElement('td');
+        const error = document.createElement('td');
+
+        iteration.innerHTML = item.iteration;
+        a.innerHTML = item.a;
+        b.innerHTML = item.b;
+        midpoint.innerHTML = item.mid;
+        funcmidpoint.innerHTML = item.funcmid;
+        error.innerHTML = item.error;
+
+        newRow.appendChild(iteration);
+        newRow.appendChild(a);
+        newRow.appendChild(b);
+        newRow.appendChild(midpoint);
+        newRow.appendChild(funcmidpoint);
+        newRow.appendChild(error);
+
+        tableBody.appendChild(newRow);
+    }
 }

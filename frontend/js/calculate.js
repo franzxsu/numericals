@@ -7,7 +7,7 @@ import * as api from "./apiHelper.js"
 export function bisection(func, lower, upper, error) {
     return api.bisect(func, lower, upper, error)
         .then(result => {
-            console.log(result);
+            // console.log(result);
             return result;
         })
         .catch(error => {

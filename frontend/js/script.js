@@ -3,14 +3,15 @@ import * as api from"./apiHelper.js"
 document.addEventListener('DOMContentLoaded', function() {
 
     console.log(api.bisect());
+    
 
     const categories = {
       prelims: [
-        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: 'bisection.html'},
-        { keywords: 'linear interpolation', text: 'Linear Interpolation Method' },
-        { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration' },
-        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method' },
-        { keywords: 'Secant Method', text: 'Secant Method' },
+        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: '../frontend/html/bisection.html'},
+        { keywords: 'linear interpolation', text: 'Linear Interpolation Method', href: '../frontend/html/bisection.html'},
+        { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration', href: '../frontend/html/bisection.html' },
+        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method', href: '../frontend/html/bisection.html' },
+        { keywords: 'Secant Method', text: 'Secant Method', href: '../frontend/html/bisection.html' },
 
       ],
       midterms: [

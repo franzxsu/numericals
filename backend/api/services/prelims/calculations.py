@@ -47,7 +47,7 @@ def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
     steps = []
     x = x0
     deriv = get_derivative(func)
-    error = 0;
+    error = 0
 
     for i in range(max_iter):
         f_x = func.subs('x', x)
@@ -61,4 +61,15 @@ def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
             break
 
         x = x_new
+    return steps
+
+
+def linear_interpolation(x_values, y_values, x):
+    steps = []
+    for i in range(len(x_values) - 1):
+        if x_values[i] <= x <= x_values[i + 1]:
+            y = (y_values[i + 1] - y_values[i]) / (x_values[i + 1] - x_values[i]) * (x - x_values[i]) + y_values[i]
+            steps.append({'segment': i, 'x': x, 'interpolated y': y})
+            break
+
     return steps

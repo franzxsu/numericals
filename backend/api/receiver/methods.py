@@ -29,4 +29,4 @@ def bisection():
     result = bisection_method(function, lower_bound, upper_bound)
 
     # result = perform_calculation(numbers, method)
-    return jsonify({"BISECTION": result})
+    return jsonify({"result": result})

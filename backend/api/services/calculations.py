@@ -2,7 +2,7 @@
 
 # https://towardsdatascience.com/root-finding-methods-from-scratch-in-python-84040c81a8ba?gi=22cd7608efb5
 # https://www.stratascratch.com/blog/8-python-libraries-for-math-data-analysis-ml-and-dl/#:~:text=These%20libraries%20include%20NumPy%2C%20SciPy,to%20build%20and%20train%20models.
-# from calculations_helper import *
+from calculations_helper import *
 
 
 def perform_calculation(numbers, method):
@@ -41,3 +41,16 @@ def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
         print(a)
     return steps
 
+def newton_raphson_method(func, deriv, x0, tol=1e-5, max_iter=100):
+    steps = []
+    x = x0
+    for i in range(max_iter):
+        x_new = x - func(x) / deriv(x)
+        steps.append({'iteration': i, 'x': x, 'f(x)': func(x), 'f\'(x)': deriv(x)})
+
+        if abs(x_new - x) < tol:
+            break
+
+        x = x_new
+
+    return steps

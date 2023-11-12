@@ -1,8 +1,11 @@
 import * as calculate from "./calculate.js";
 
 const calcButton = document.getElementById('calculate');
+const clearButton = document.getElementById('clear')
+const table = document.getElementById("table");
 
 calcButton.addEventListener("click", calculateButtonClicked);
+clearButton.addEventListener("click", clearButtonClicked);
 
 async function calculateButtonClicked(){
     console.log("calculatebtn");
@@ -22,7 +25,13 @@ async function calculateButtonClicked(){
     const result = await calculate.bisection(func, lowerBound, upperBound, error);
     populateTable(result);
 }
+
+function clearButtonClicked(){
+    table.classList.add("hidden");
+}
+
 function populateTable(res){
+    table.classList.remove("hidden");
     const tableBody = document.getElementById("resultTable");
     tableBody.innerHTML = "";
     console.log(res);

@@ -3,14 +3,15 @@ import * as api from"./apiHelper.js"
 document.addEventListener('DOMContentLoaded', function() {
 
     console.log(api.bisect());
+    
 
     const categories = {
       prelims: [
-        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method' },
-        { keywords: 'linear interpolation', text: 'Linear Interpolation Method' },
-        { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration' },
-        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method' },
-        { keywords: 'Secant Method', text: 'Secant Method' },
+        { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: '../frontend/html/bisection.html'},
+        { keywords: 'linear interpolation', text: 'Linear Interpolation Method', href: '../frontend/html/bisection.html'},
+        { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration', href: '../frontend/html/bisection.html' },
+        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method', href: '../frontend/html/bisection.html' },
+        { keywords: 'Secant Method', text: 'Secant Method', href: '../frontend/html/bisection.html' },
 
       ],
       midterms: [
@@ -39,13 +40,20 @@ document.addEventListener('DOMContentLoaded', function() {
   function addGridItems(categoryId, items) {
     const gridContainer = document.querySelector(`#${categoryId} .grid`);
     items.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'grid-item';
-      div.textContent = item.text;
-      div.setAttribute('data-keywords', item.keywords.toLowerCase());
-      gridContainer.appendChild(div);
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.className = 'grid-item';
+
+      const contentDiv = document.createElement('div');
+      contentDiv.textContent = item.text;
+      contentDiv.setAttribute('data-keywords', item.keywords.toLowerCase());
+
+      link.appendChild(contentDiv);
+
+      gridContainer.appendChild(link);
     });
-  }
+}
+
   
   function filterGridItems() {
     let input = document.getElementById('search-input').value.toLowerCase();

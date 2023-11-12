@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisection Method Online Calculator</title>
+    <link rel="stylesheet" href="../css/bisection.css">
+</head>
+<body>
+    
+    <div class="calculator-container">
+        <h1>Bisection Method Online Calculator</h1>
+        <p>Bisection method calculator is an online tool to find the real root of nonlinear equations using the bisection method.</p>
+        <p>Just input nonlinear equation, initial guesses, and tolerable error and press CALCULATE. <a href="#">View all Online Tools</a></p>
+        
+        <div class="input-area">
+            <div class="input-group">
+                <label for="function">f(x):</label>
+                <input type="text" id="function" placeholder="2x^5 - cos(x) - x * exp(x)" value="x^2-1">
+            </div>
+            <div class="input-group">
+                <label for="lowerbound">lower bound:</label>
+                <input type="text" id="lowerbound" placeholder="1" value="1">
+            </div>
+            <div class="input-group">
+                <label for="upperbound">upper bound:</label>
+                <input type="text" id="upperbound" placeholder="2" value="2">
+            </div>
+            <div class="input-group">
+                <label for="error">error:</label>
+                <input type="text" id="error" placeholder="0.0005" value="0.0005">
+            </div>
+            <div class="button-group">
+                <button id="calculate">CALCULATE</button>
+                <button id="clear">CLEAR</button>
+            </div>
+        </div>
+
+        <table class="">
+            <thead>
+                <tr>
+                    <th>step</th>
+                    <th>a</th>
+                    <th>b</th>
+                    <th>midpoint</th>
+                    <th>f(midpoint)</th>
+                    <th>error</th>
+                </tr>
+            </thead>
+            <tbody id="resultTable">
+            <!-- <tr>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+            </tr>
+            <tr>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+            </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script type="module" src="../js/bisection.js"></script>
+</body>
+</html>

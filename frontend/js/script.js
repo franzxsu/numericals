@@ -39,17 +39,20 @@ document.addEventListener('DOMContentLoaded', function() {
   function addGridItems(categoryId, items) {
     const gridContainer = document.querySelector(`#${categoryId} .grid`);
     items.forEach(item => {
-      const div = document.createElement('div');
-      const link = document.createElement('a')
-      link.href=item.href;
-      link.innerHTML=item.text;
-      div.className = 'grid-item';
-      div.setAttribute('data-keywords', item.keywords.toLowerCase());
-      div.appendChild(link);
-      
-      gridContainer.appendChild(div);
+      const link = document.createElement('a');
+      link.href = item.href;
+      link.className = 'grid-item';
+
+      const contentDiv = document.createElement('div');
+      contentDiv.textContent = item.text;
+      contentDiv.setAttribute('data-keywords', item.keywords.toLowerCase());
+
+      link.appendChild(contentDiv);
+
+      gridContainer.appendChild(link);
     });
-  }
+}
+
   
   function filterGridItems() {
     let input = document.getElementById('search-input').value.toLowerCase();

@@ -1,10 +1,7 @@
 import * as api from"./apiHelper.js"
 
 document.addEventListener('DOMContentLoaded', function() {
-
-    console.log(api.bisect());
-    
-
+  
     const categories = {
       prelims: [
         { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: '../frontend/html/bisection.html'},
@@ -15,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       ],
       midterms: [
-        { keywords: 'Matrices matrix', text: 'Matrices' },
+        { keywords: 'Matrices matrix', text: 'Matrices', href:'../frontend/html/matrices.html' },
         { keywords: 'jacobi', text: 'Jacobi Iteration' },
         { keywords: 'Gauss-Seidel gauss seidel', text: 'Gauss-Seidel Method' },
         { keywords: 'Relaxation', text: 'Relaxation Method' },

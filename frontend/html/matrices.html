@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Calculator</title>
+    <link rel="stylesheet" href="../css/matrix.css">
+</head>
+
+<body>
+    <h1>MATRIX CALCULATOR</h1>
+
+    <div class="matrix-container">
+
+
+
+        <div class="input-area">
+            <div class="input-group">
+                <label for="function">operation: </label>
+                <select name="options" id="selectOptionsMatrix">
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="scalar-multiplication">Scalar Multiplication</option>
+                    <option value="row-interchange">Row Interchange</option>
+                    <option value="inverse">Matrix Inverse</option>
+                    <option value="determinant">Matrix Determinant</option>
+                </select>
+            </div>
+            <!-- OTHER OPTIONS LALAGAY KO NALANG DYNAMICALLY VIA JS 
+            kasi options will depend on what operation is chosen by the
+            user-->
+            <!-- initially, operation should be add.. -->
+
+            <!-- PLACEHOLDER -->
+            <div class="input-group"></div>
+            <div id="matrix-size-container"> 
+            <label for="matrix-size">size of matrix: </label>
+                <input type="text" id="matrixrow" placeholder="row" value="">
+                <label for="matrix-size"> x </label>
+                <input type="text" id="matrixrow" placeholder="column" value="">
+            </div>
+
+            <div class="input-matrix">
+                <div class="one-matrix">
+                    <div class="matrix-row" id="matrix1row1">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                    <div class="matrix-row" id="matrix1row2">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                    <div class="matrix-row" id="matrix1row3">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                </div>
+
+                <div class="one-matrix">
+                    <div class="matrix-row">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                    <div class="matrix-row">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                    <div class="matrix-row">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                        <input type="text" id="matrixrow" placeholder="column" value="">
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

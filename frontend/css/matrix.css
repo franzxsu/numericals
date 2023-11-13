@@ -1,0 +1,21 @@
+@import url(styles.css);
+
+.matrix-container{
+    max-width: 75%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-size-container{
+    display: inline;
+}
+
+.matrix-row{
+    display: flex;
+}
+
+.one-matrix{
+    margin: 50px;
+}

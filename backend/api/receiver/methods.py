@@ -41,5 +41,4 @@ def newtonraphson():
     print("x: " + str(x))
 
     result = newton_raphson_method(str(function), int(x))
-
     return jsonify({"result": result})

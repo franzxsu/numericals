@@ -66,7 +66,15 @@ class Matrix:
                 result.set_value(i, j, self.get_value(i, j) + other.get_value(i, j))
         return result
 
+    def subtract_matrix(self, other):
+        if self.rows != other.rows or self.cols != other.cols:
+            raise ValueError("matrices must have the same dimensions")
 
+        result = Matrix(self.rows, self.cols)
+        for i in range(self.rows):
+            for j in range(self.cols):
+                result.set_value(i, j, self.get_value(i, j) - other.get_value(i, j))
+        return result
 
 # for i in range(rows):
 #     for j in range(cols):

@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const rowInput = document.getElementById('matrixrow');
     const columnInput = document.getElementById('matrixcolumn');
     const matrixLabels = document.getElementsByClassName('matrix-label');
-
+    const calculateBtn = document.getElementById('calculate');
+    calculateBtn.addEventListener("click", getMatrices);
     updateMatrixSize()
 
     // WILL CHANGE SIZE OF MATRIX DEPENDING ON ZEEEE INPUT ^^^^
@@ -30,9 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
         updateMatrix('matrix1', rows, columns);
         updateMatrix('matrix2', rows, columns);
-        
-
-        
     }
 
     function updateMatrix(matrixId, rows, columns) {
@@ -60,3 +58,36 @@ document.addEventListener('DOMContentLoaded', function() {
     rowInput.addEventListener('input', updateMatrixSize);
     columnInput.addEventListener('input', updateMatrixSize);
 });
+
+function getMatrices(){
+    const matrix1Values = getMatrixValues('matrix1');
+    const matrix2Values = getMatrixValues('matrix2');
+
+    const matrices = {
+        'matrix1': matrix1Values,
+        'matrix2': matrix2Values
+    };
+
+    console.log(matrices);
+}
+
+function getMatrixValues(matrixId) {
+    const matrixValues = [];
+
+    const matrix = document.getElementById(matrixId);
+    const rows = matrix.children;
+
+    for (let i = 0; i < rows.length; i++) {
+        const rowValues = [];
+        const cells = rows[i].getElementsByTagName('input');
+
+        for (let j = 0; j < cells.length; j++) {
+            const value = parseFloat(cells[j].value) || 0;
+            rowValues.push(value);
+        }
+
+        matrixValues.push(rowValues);
+    }
+
+    return matrixValues;
+}

@@ -27,7 +27,14 @@ def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
     err = 0
     for i in range(max_iter):
         mid = (a + b) / 2
-        steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'funcmid': func(mid), 'error': err})
+        steps.append({
+            'iteration': round(i, 4),
+            'a': round(a, 4),
+            'b': round(b, 4),
+            'mid': round(mid, 4),
+            'funcmid': round(func(mid), 4),
+            'error': round(err, 4)
+        })
 
         if func(mid) * func(a) < 0:
             b = mid

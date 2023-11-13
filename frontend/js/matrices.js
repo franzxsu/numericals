@@ -2,17 +2,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const maxMatrixSize = 7;
     const rowInput = document.getElementById('matrixrow');
     const columnInput = document.getElementById('matrixcolumn');
-    const matrixLabels = document.getElementsByClassName("matrix-label")
+    const matrixLabels = document.getElementsByClassName('matrix-label');
 
     updateMatrixSize()
 
     // WILL CHANGE SIZE OF MATRIX DEPENDING ON ZEEEE INPUT ^^^^
     function updateMatrixSize() {
+        if (rowInput.value==""||columnInput.value==""){
+            console.log("one is empty");
+
+            //TODO: ENCLOSE IN A METHOD
+            for(var i = 0; i < matrixLabels.length; i++)
+                {
+                    matrixLabels[i].classList.add("hidden");
+                }
+        }
+        else{
+            for(var i = 0; i < matrixLabels.length; i++)
+            {
+                matrixLabels[i].classList.remove("hidden");
+            }
+        }
+        
+
         const rows = Math.min(parseInt(rowInput.value) || 0, maxMatrixSize);
         const columns = Math.min(parseInt(columnInput.value) || 0, maxMatrixSize);
-
+    
         updateMatrix('matrix1', rows, columns);
         updateMatrix('matrix2', rows, columns);
+        
+
+        
     }
 
     function updateMatrix(matrixId, rows, columns) {

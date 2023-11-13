@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'COOLBOLD';
+  src: url('../../assets/fonts/LEMONMILK-Bold.otf');
+}
+@font-face {
+  font-family: 'COOLLIGHT';
+  src: url('../../assets/fonts/LEMONMILK-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'COOLREGULAR';
+  src: url('../../assets/fonts/LEMONMILK-Regular.otf') format('truetype');
+}
+
 body, html {
     margin: 0;
     padding: 0;

@@ -24,11 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let c = 1; c <= columns; c++) {
                 const input = document.createElement('input');
                 input.type = 'text';
-                input.id = `${matrixId.slice(0, 2)}r${r}c${c}`;
+                input.id = `m${matrixId.slice(-1)}r${r}c${c}`;
                 input.placeholder = 'column';
                 matrixRow.appendChild(input);
             }
-
             matrix.appendChild(matrixRow);
         }
     }

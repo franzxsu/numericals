@@ -12,18 +12,17 @@ clearButton.addEventListener("click", clearButtonClicked);
 async function calculateButtonClicked(){
     console.log("calculatebtn");
     const func = document.getElementById("function").value.replace(/\^/g, '**');;
-    const lowerBound = document.getElementById("lowerbound").value;
-    const upperBound = document.getElementById("upperbound").value;
+    const x = document.getElementById("xvalue").value;
     const error = document.getElementById("error").value;
 
     console.log(func);
     console.log(typeof func);
-    console.log(lowerBound);
-    console.log(upperBound);
+    console.log(x);
     console.log(error);
     
-    const result = await calculate.bisection(func, lowerBound, upperBound, error);
-    populateTable(result);
+    const result = await calculate.newtonraphson(func, x, error);
+    console.log(result);
+    // populateTable(result);
 }
 
 function clearButtonClicked(){

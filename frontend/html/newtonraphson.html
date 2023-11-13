@@ -3,28 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bisection Method Online Calculator</title>
-    <link rel="stylesheet" href="../css/bisection.css">
+    <title>Newton-Raphson Method Online Calculator</title>
+    <link rel="stylesheet" href="../css/newtonraphson.css">
 </head>
 <body>
     
     <div class="calculator-container">
-        <h1>Bisection Method Online Calculator</h1>
-        <p>Bisection method calculator is an online tool to find the real root of nonlinear equations using the bisection method.</p>
+        <h1>Newton-Raphson Method Online Calculator</h1>
+        <p>Newton-Raphson method online calculator is an online tool to find the real root of nonlinear equations using the Newton-Raphson method.</p>
         <p>Just input nonlinear equation, initial guesses, and tolerable error and press CALCULATE. <a href="#">View all Online Tools</a></p>
         
         <div class="input-area">
             <div class="input-group">
                 <label for="function">f(x):</label>
-                <input type="text" id="function" placeholder="2x^5 - cos(x) - x * exp(x)" value="x^2-1">
+                <input type="text" id="function" placeholder="2x^5 - cos(x) - x * exp(x)" value="x^2-4">
             </div>
             <div class="input-group">
-                <label for="lowerbound">lower bound:</label>
-                <input type="text" id="lowerbound" placeholder="1" value="1">
-            </div>
-            <div class="input-group">
-                <label for="upperbound">upper bound:</label>
-                <input type="text" id="upperbound" placeholder="2" value="2">
+                <label for="x">x:</label>
+                <input type="text" id="xvalue" placeholder="1" value="1">
             </div>
             <div class="input-group">
                 <label for="error">error:</label>
@@ -36,14 +32,13 @@
             </div>
         </div>
 
-        <table id="table" class="hidden">
+        <table id="table" class="">
             <thead>
                 <tr>
                     <th>step</th>
-                    <th>a</th>
-                    <th>b</th>
-                    <th>midpoint</th>
-                    <th>f(midpoint)</th>
+                    <th>x</th>
+                    <th>f(x)</th>
+                    <th>f'(x)</th>
                     <th>error</th>
                 </tr>
             </thead>
@@ -51,6 +46,6 @@
             </tbody>
         </table>
     </div>
-    <script type="module" src="../js/bisection.js"></script>
+    <script type="module" src="../js/newtonraphson.js"></script>
 </body>
 </html>

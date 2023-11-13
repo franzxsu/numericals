@@ -25,25 +25,45 @@ export function getAns(nums, operation){
         ub: 2
  */
 
-export function bisect(func, lower, upper, error) {
-    return fetch('http://127.0.0.1:5000/bisection', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            function: func,
-            lb: lower,
-            ub: upper,
-            error: error
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
+export async function bisect(func, lower, upper, error) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/bisection', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                function: func,
+                lb: lower,
+                ub: upper,
+                error: error
+            }),
+        });
+        const data = await response.json();
         return data.result;
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        throw error;
-    });
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
+}
+
+export async function newtonraphson(func, x, error) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/newtonraphson', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                function: func,
+                x: x,
+                error: error
+            }),
+        });
+        const data = await response.json();
+        return data.result;
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
 }

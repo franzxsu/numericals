@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { keywords: 'bisection approximation midpoint fuck you test', text: 'Bisection Method', href: '../frontend/html/bisection.html'},
         { keywords: 'linear interpolation', text: 'Linear Interpolation Method', href: '../frontend/html/bisection.html'},
         { keywords: 'Fixed Point Iteration', text: 'Fixed Point Iteration', href: '../frontend/html/bisection.html' },
-        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method', href: '../frontend/html/bisection.html' },
+        { keywords: 'Newton-Raphson Method', text: 'Newton-Raphson Method', href: '../frontend/html/newtonraphson.html' },
         { keywords: 'Secant Method', text: 'Secant Method', href: '../frontend/html/bisection.html' },
 
       ],

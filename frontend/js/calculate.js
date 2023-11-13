@@ -4,14 +4,22 @@
 
 import * as api from "./apiHelper.js"
 
-export function bisection(func, lower, upper, error) {
-    return api.bisect(func, lower, upper, error)
-        .then(result => {
-            // console.log(result);
-            return result;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            throw error; // Rethrow the error to propagate it further if needed
-        });
+export async function bisection(func, lower, upper, error) {
+    try {
+        const result = await api.bisect(func, lower, upper, error);
+        return result;
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
+}
+
+export async function newtonraphson(func, x, error) {
+    try {
+        const result = await api.newtonraphson(func, x, error);
+        return result;
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
 }

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const input = document.createElement('input');
                 input.type = 'text';
                 input.id = `m${matrixId.slice(-1)}r${r}c${c}`;
-                input.placeholder = 'column';
+                input.placeholder = '';
                 matrixRow.appendChild(input);
             }
             matrix.appendChild(matrixRow);

@@ -19,3 +19,8 @@
 .one-matrix{
     margin: 50px;
 }
+
+.one-matrix input{
+    max-width: 10%;
+    margin: 3px;
+}

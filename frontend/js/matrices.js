@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const columnInput = document.getElementById('matrixcolumn');
     const matrixLabels = document.getElementsByClassName('matrix-label');
     const calculateBtn = document.getElementById('calculate');
+    const matrixOperation = document.getElementById('selectOptionsMatrix');
 
     calculateBtn.addEventListener("click", function() {
-        computeMatrices('add');
+        computeMatrices(matrixOperation.value);
     });
 
     rowInput.addEventListener('input', updateMatrixSize);

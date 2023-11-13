@@ -1,5 +1,5 @@
 import re
-
+import json
 
 class Matrix:
     def __init__(self, rows, cols):
@@ -30,13 +30,15 @@ class Matrix:
     def __str__(self):
         return "\n".join([" ".join(map(str, row)) for row in self.data])
 
-    # ELEMENTARY ROW OPERATIONS
+    # OPERATIONS
 
     def row_interchange(self, row1, row2):
         if 0 <= row1 < self.rows and 0 <= row2 < self.rows:
             self.data[row1], self.data[row2] = self.data[row2], self.data[row1]
         else:
             raise ValueError("ROW OUT OF RANGE")
+
+        self.to_json()
 
     # function can be for example, 2r1 which means 2 x r1 and then the second parameter is where the answer of the
     # scalar multiplication will go, if this is blank, answers will go to the row where the multiplication is called
@@ -55,6 +57,8 @@ class Matrix:
             self.data[target_row] = [scalar * element for element in self.data[target_row]]
         else:
             raise ValueError("Invalid row index")
+
+        return self.to_json()
 
     def matrix_operation(self, other, operation):
         """
@@ -76,7 +80,11 @@ class Matrix:
                 else:
                     raise ValueError("Invalid operation specified")
 
-        return result
+        return self.to_json()
+
+    def to_json(self):
+        import json
+        return json.dumps(self.data)
 
 # for i in range(rows):
 #     for j in range(cols):

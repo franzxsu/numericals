@@ -45,22 +45,23 @@ def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
 
 def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
     steps = []
-    x = x0
+    x_val = x0
     deriv = get_derivative(func)
     error = 0
-
+    x = symbols('x')
+    func = eval(func)
     for i in range(max_iter):
-        f_x = func.subs('x', x)
-        f_prime_x = deriv.subs('x', x)
+        f_x = func.subs('x', x_val)
+        f_prime_x = deriv.subs('x', x_val)
 
-        x_new = x - f_x / f_prime_x
-        steps.append({'iteration': i, 'x': x, 'f(x)': f_x, 'f\'(x)': f_prime_x, 'error': eval(str(error))})
+        x_new = x_val - f_x / f_prime_x
+        steps.append({'iteration': i, 'x': x_val, 'f(x)': f_x, 'f\'(x)': f_prime_x, 'error': eval(str(error))})
 
-        error = get_error(x_new, x)
+        error = get_error(x_new, x_val)
         if error < tol:
             break
 
-        x = x_new
+        x_val = x_new
     return steps
 
 

@@ -1,7 +1,7 @@
 # reponsible for everything like getting numbers from the client to returning number (IN JSON FORMAT) the ano the result
 
 from flask import Blueprint, request, jsonify
-from backend.api.services.prelims.calculations import perform_calculation, bisection_method, linear_interpolation
+from backend.api.services.prelims.calculations import perform_calculation, bisection_method, linear_interpolation, newton_raphson_method
 
 numerical_methods_blueprint = Blueprint('numerical_methods', __name__)
 
@@ -29,4 +29,17 @@ def bisection():
     result = bisection_method(str(function), int(lower_bound), int(upper_bound))
 
     # result = perform_calculation(numbers, method)
+    return jsonify({"result": result})
+
+@numerical_methods_blueprint.route('/newtonraphson', methods=['POST'])
+def newtonraphson():
+    data = request.json
+    function = data.get('function')
+    x = data.get('x')
+
+    print("FUNCTION: "+str(function))
+    print("x: " + str(x))
+
+    result = newton_raphson_method(str(function), int(x))
+
     return jsonify({"result": result})

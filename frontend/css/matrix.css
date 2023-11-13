@@ -1,0 +1,48 @@
+@import url('styles.css');
+
+.matrix-container {
+    max-width: 75%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-row {
+    display: flex;
+    justify-content: left;
+    margin-left: 50px;
+}
+
+.input-matrix {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.one-matrix {
+    margin: 0px 0;
+}
+
+.one-matrix input {
+    max-width: 50px;
+    margin: 3px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-group button {
+    margin: 0 10px;
+    padding: 5px 15px;
+}
+
+h2{
+    margin: 0px;
+    margin-bottom: 20px;
+    text-align: left;
+}

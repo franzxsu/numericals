@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Calculator</title>
+    <link rel="stylesheet" href="../css/matrix.css">
+</head>
+
+<body>
+    <h1>MATRIX CALCULATOR</h1>
+
+    <div class="matrix-container">
+        <div class="input-area">
+            <div class="input-group">
+                <label for="function">operation: </label>
+                <select name="options" id="selectOptionsMatrix">
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="scalar-multiplication">Scalar Multiplication</option>
+                    <option value="row-interchange">Row Interchange</option>
+                    <option value="inverse">Matrix Inverse</option>
+                    <option value="determinant">Matrix Determinant</option>
+                </select>
+            </div>
+            <!-- OTHER OPTIONS LALAGAY KO NALANG DYNAMICALLY VIA JS 
+            kasi options will depend on what operation is chosen by the
+            user-->
+            <!-- initially, operation should be add.. -->
+
+            <!-- PLACEHOLDER -->
+            <div class="input-group"></div>
+            <div id="matrix-size-container"> 
+            <label for="matrix-size">size of matrix: </label>
+                <input type="text" id="matrixrow" placeholder="row" value="2">
+                <label for="matrix-size"> x </label>
+                <input type="text" id="matrixcolumn" placeholder="column" value="3">
+            </div>
+
+            <div class="input-matrix">
+                <label for="matrix" class="matrix-label">Matrix 1</label>
+                <div class="one-matrix" id="matrix1">
+                </div>
+                <label for="matrix" class="matrix-label">Matrix 2</label>
+                <div class="one-matrix" id="matrix2">
+                </div>
+            </div>
+            <div class="button-group">
+                <button id="calculate">CALCULATE</button>
+                <button id="clear">CLEAR</button>
+            </div>
+        </div>
+
+    </div>
+<script src="../js/matrices.js"></script>
+</body>
+</html>

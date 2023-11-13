@@ -8,6 +8,30 @@ class Matrix:
         self.data = [[0] * cols for _ in range(rows)]
         # self.input_matrix_values()
 
+    @classmethod
+    def from_json(cls, json_data):
+        try:
+            data = json.loads(json_data)
+            if not isinstance(data, dict):
+                raise ValueError("invalid JSON format")
+
+            matrix_values = data.get('matrix1')
+            if not matrix_values or not isinstance(matrix_values, list):
+                raise ValueError("invalid matrix format in JSON")
+
+            rows = len(matrix_values)
+            cols = len(matrix_values[0])
+            matrix = cls(rows, cols)
+
+            for i in range(rows):
+                for j in range(cols):
+                    matrix.set_value(i, j, matrix_values[i][j])
+
+            return matrix
+
+        except json.JSONDecodeError:
+            raise ValueError("invalid JSON format")
+
     def input_matrix_values(self):
         print("ENTER VALUES FOR MATRIX")
         for i in range(self.rows):

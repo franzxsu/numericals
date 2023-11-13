@@ -1,8 +1,11 @@
 import * as calculate from "./calculate.js";
 
 const calcButton = document.getElementById('calculate');
+const clearButton = document.getElementById('clear')
+const table = document.getElementById("table");
 
 calcButton.addEventListener("click", calculateButtonClicked);
+clearButton.addEventListener("click", clearButtonClicked);
 
 async function calculateButtonClicked(){
     console.log("calculatebtn");
@@ -20,11 +23,42 @@ async function calculateButtonClicked(){
     console.log(error);
     
     const result = await calculate.bisection(func, lowerBound, upperBound, error);
-    console.log(result);
     populateTable(result);
 }
+
+function clearButtonClicked(){
+    table.classList.add("hidden");
+}
+
 function populateTable(res){
-    const results = JSON.parse(res);
-    resultTable=document.getElementById("resultTable");
-    console.log(results)
+    table.classList.remove("hidden");
+    const tableBody = document.getElementById("resultTable");
+    tableBody.innerHTML = "";
+    console.log(res);
+    for (const item of res){
+        const newRow = document.createElement('tr');
+        newRow.classList.add("row");
+        const iteration = document.createElement('td');
+        const a = document.createElement('td');
+        const b = document.createElement('td');
+        const midpoint = document.createElement('td');
+        const funcmidpoint = document.createElement('td');
+        const error = document.createElement('td');
+
+        iteration.innerHTML = item.iteration;
+        a.innerHTML = item.a;
+        b.innerHTML = item.b;
+        midpoint.innerHTML = item.mid;
+        funcmidpoint.innerHTML = item.funcmid;
+        error.innerHTML = item.error;
+
+        newRow.appendChild(iteration);
+        newRow.appendChild(a);
+        newRow.appendChild(b);
+        newRow.appendChild(midpoint);
+        newRow.appendChild(funcmidpoint);
+        newRow.appendChild(error);
+
+        tableBody.appendChild(newRow);
+    }
 }

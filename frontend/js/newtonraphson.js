@@ -22,7 +22,7 @@ async function calculateButtonClicked(){
     
     const result = await calculate.newtonraphson(func, x, error);
     console.log(result);
-    // populateTable(result);
+    populateTable(result);
 }
 
 function clearButtonClicked(){
@@ -39,24 +39,21 @@ function populateTable(res){
         const newRow = document.createElement('tr');
         newRow.classList.add("row");
         const iteration = document.createElement('td');
-        const a = document.createElement('td');
-        const b = document.createElement('td');
-        const midpoint = document.createElement('td');
-        const funcmidpoint = document.createElement('td');
+        const x = document.createElement('td');
+        const funcOfX = document.createElement('td');
+        const funcPrimeOfX = document.createElement('td');
         const error = document.createElement('td');
 
         iteration.innerHTML = item.iteration;
-        a.innerHTML = item.a;
-        b.innerHTML = item.b;
-        midpoint.innerHTML = item.mid;
-        funcmidpoint.innerHTML = item.funcmid;
+        x.innerHTML = item.x;
+        funcOfX.innerHTML = item.funcOfX;
+        funcPrimeOfX.innerHTML = item.funcPrimeOfX;
         error.innerHTML = item.error;
 
         newRow.appendChild(iteration);
-        newRow.appendChild(a);
-        newRow.appendChild(b);
-        newRow.appendChild(midpoint);
-        newRow.appendChild(funcmidpoint);
+        newRow.appendChild(x);
+        newRow.appendChild(funcOfX);
+        newRow.appendChild(funcPrimeOfX);
         newRow.appendChild(error);
 
         tableBody.appendChild(newRow);

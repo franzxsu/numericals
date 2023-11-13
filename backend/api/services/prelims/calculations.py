@@ -55,7 +55,7 @@ def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
         f_prime_x = deriv.subs('x', x_val)
 
         x_new = x_val - f_x / f_prime_x
-        steps.append({'iteration': str(i), 'x': str(x_val), 'f(x)': str(f_x), 'f\'(x)': str(f_prime_x), 'error': eval(str(error))})
+        steps.append({'iteration': str(i), 'x': str(x_val), 'funcOfX': str(f_x), 'funcPrimeOfX': str(f_prime_x), 'error': eval(str(error))})
 
         error = get_error(x_new, x_val)
         if error < tol:

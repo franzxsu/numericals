@@ -67,3 +67,26 @@ export async function newtonraphson(func, x, error) {
         throw error_1;
     }
 }
+
+export async function addMatrices(matrix1, matrix2, operation) {
+    console.log(matrix1);
+    console.log(matrix2);
+    try {
+        const response = await fetch('http://127.0.0.1:5000/matrix_operation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                matrix1: matrix1,
+                matrix2: matrix2,
+                operation: operation
+            }),
+        });
+        const data = await response.json();
+        return data.result;
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
+}

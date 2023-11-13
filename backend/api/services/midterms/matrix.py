@@ -6,7 +6,7 @@ class Matrix:
         self.rows = rows
         self.cols = cols
         self.data = [[0] * cols for _ in range(rows)]
-        self.input_matrix_values()
+        # self.input_matrix_values()
 
     def input_matrix_values(self):
         print("ENTER VALUES FOR MATRIX")
@@ -55,6 +55,28 @@ class Matrix:
             self.data[target_row] = [scalar * element for element in self.data[target_row]]
         else:
             raise ValueError("Invalid row index")
+
+    def matrix_operation(self, other, operation):
+        """
+
+        :param other: the other matrix
+        :param operation: operation to be executed, can be either 'add' or 'subtract'
+        :return: Matrix object - result of the matrix operations
+        """
+        if self.rows != other.rows or self.cols != other.cols:
+            raise ValueError("matrices must have the same dimension")
+
+        result = Matrix(self.rows, self.cols)
+        for i in range(self.rows):
+            for j in range(self.cols):
+                if operation == 'add':
+                    result.set_value(i, j, self.get_value(i, j) + other.get_value(i, j))
+                elif operation == 'subtract':
+                    result.set_value(i, j, self.get_value(i, j) - other.get_value(i, j))
+                else:
+                    raise ValueError("Invalid operation specified")
+
+        return result
 
 # for i in range(rows):
 #     for j in range(cols):

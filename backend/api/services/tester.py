@@ -44,6 +44,7 @@ matrix_b.input_matrix_values()
 print("MATRIX B IS: ")
 print(matrix_b)
 
-matrix_sum = matrix_a.add_matrix(matrix_b)
-
-print(matrix_sum)
+matrix_sum = matrix_a.matrix_operation(matrix_b, 'add')
+matrix_diff = matrix_a.matrix_operation(matrix_b, 'subtract')
+print("SUM IS: "+str(matrix_sum))
+print("DIFFERENCE IS: "+str(matrix_diff))

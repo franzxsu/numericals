@@ -56,24 +56,26 @@ class Matrix:
         else:
             raise ValueError("Invalid row index")
 
-    def add_matrix(self, other):
+    def matrix_operation(self, other, operation):
+        """
+
+        :param other: the other matrix
+        :param operation: operation to be executed, can be either 'add' or 'subtract'
+        :return: Matrix object - result of the matrix operations
+        """
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("matrices must have the same dimension")
 
         result = Matrix(self.rows, self.cols)
         for i in range(self.rows):
             for j in range(self.cols):
-                result.set_value(i, j, self.get_value(i, j) + other.get_value(i, j))
-        return result
+                if operation == 'add':
+                    result.set_value(i, j, self.get_value(i, j) + other.get_value(i, j))
+                elif operation == 'subtract':
+                    result.set_value(i, j, self.get_value(i, j) - other.get_value(i, j))
+                else:
+                    raise ValueError("Invalid operation specified")
 
-    def subtract_matrix(self, other):
-        if self.rows != other.rows or self.cols != other.cols:
-            raise ValueError("matrices must have the same dimensions")
-
-        result = Matrix(self.rows, self.cols)
-        for i in range(self.rows):
-            for j in range(self.cols):
-                result.set_value(i, j, self.get_value(i, j) - other.get_value(i, j))
         return result
 
 # for i in range(rows):

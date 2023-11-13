@@ -33,3 +33,17 @@ for q in a:
 # print(matrix)
 # matrix.scalar_multiplication("1r2", 0)
 # print(matrix)
+
+matrix_a = Matrix(2, 2)
+matrix_a.input_matrix_values()
+print("MATRIX A IS: ")
+print(matrix_a)
+
+matrix_b = Matrix(2,2)
+matrix_b.input_matrix_values()
+print("MATRIX B IS: ")
+print(matrix_b)
+
+matrix_sum = matrix_a.add_matrix(matrix_b)
+
+print(matrix_sum)

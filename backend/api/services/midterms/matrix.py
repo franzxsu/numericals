@@ -6,7 +6,7 @@ class Matrix:
         self.rows = rows
         self.cols = cols
         self.data = [[0] * cols for _ in range(rows)]
-        self.input_matrix_values()
+        # self.input_matrix_values()
 
     def input_matrix_values(self):
         print("ENTER VALUES FOR MATRIX")
@@ -55,6 +55,18 @@ class Matrix:
             self.data[target_row] = [scalar * element for element in self.data[target_row]]
         else:
             raise ValueError("Invalid row index")
+
+    def add_matrix(self, other):
+        if self.rows != other.rows or self.cols != other.cols:
+            raise ValueError("matrices must have the same dimension")
+
+        result = Matrix(self.rows, self.cols)
+        for i in range(self.rows):
+            for j in range(self.cols):
+                result.set_value(i, j, self.get_value(i, j) + other.get_value(i, j))
+        return result
+
+
 
 # for i in range(rows):
 #     for j in range(cols):

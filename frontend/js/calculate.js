@@ -23,3 +23,13 @@ export async function newtonraphson(func, x, error) {
         throw error_1;
     }
 }
+
+export async function addMatrices(matrix1, matrix2, operation) {
+    try {
+        const result = await api.addMatrices(matrix1, matrix2, operation);
+        return result;
+    } catch (error_1) {
+        console.error('Error:', error_1);
+        throw error_1;
+    }
+}

@@ -1,7 +1,7 @@
 @import url(styles.css);
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -54,6 +54,15 @@ button {
     color: white;
     cursor: pointer;
 }
+
+tbody{
+    font-size: 18px;
+}
+
+label{
+    font-weight: bold;
+}
+
 
 button#clear {
     background-color: #d9534f;

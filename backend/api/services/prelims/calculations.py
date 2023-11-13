@@ -27,7 +27,14 @@ def bisection_method(func_str, a, b, tol=1e-5, max_iter=50):
     err = 0
     for i in range(max_iter):
         mid = (a + b) / 2
-        steps.append({'iteration': i, 'a': str(a), 'b': str(b), 'mid': mid, 'funcmid': func(mid), 'error': err})
+        steps.append({
+            'iteration': round(i, 4),
+            'a': round(a, 4),
+            'b': round(b, 4),
+            'mid': round(mid, 4),
+            'funcmid': round(func(mid), 4),
+            'error': round(err, 4)
+        })
 
         if func(mid) * func(a) < 0:
             b = mid
@@ -55,7 +62,13 @@ def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
         f_prime_x = deriv.subs('x', x_val)
 
         x_new = x_val - f_x / f_prime_x
-        steps.append({'iteration': str(i), 'x': str(x_val), 'funcOfX': str(f_x), 'funcPrimeOfX': str(f_prime_x), 'error': eval(str(error))})
+        steps.append({
+            'iteration': str(i),
+            'x': round(eval(str(x_val)), 4),
+            'funcOfX': round(eval(str(f_x)), 4),
+            'funcPrimeOfX': round(eval(str(f_prime_x)), 4),
+            'error': round(eval(str(error)), 4)
+        })
 
         error = get_error(x_new, x_val)
         if error < tol:

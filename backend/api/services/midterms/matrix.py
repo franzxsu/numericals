@@ -11,13 +11,9 @@ class Matrix:
     @classmethod
     def from_json(cls, json_data):
         try:
-            data = json.loads(json_data)
-            if not isinstance(data, dict):
-                raise ValueError("invalid JSON format")
-
-            matrix_values = data.get('matrix1')
-            if not matrix_values or not isinstance(matrix_values, list):
-                raise ValueError("invalid matrix format in JSON")
+            matrix_values = json.loads(json_data)
+            if not isinstance(matrix_values, list) or not matrix_values:
+                raise ValueError("Invalid matrix format in JSON")
 
             rows = len(matrix_values)
             cols = len(matrix_values[0])
@@ -30,7 +26,7 @@ class Matrix:
             return matrix
 
         except json.JSONDecodeError:
-            raise ValueError("invalid JSON format")
+            raise ValueError("Invalid JSON format")
 
     def input_matrix_values(self):
         print("ENTER VALUES FOR MATRIX")
@@ -104,7 +100,7 @@ class Matrix:
                 else:
                     raise ValueError("Invalid operation specified")
 
-        return self.to_json()
+        return result.to_json()
 
     def to_json(self):
         import json

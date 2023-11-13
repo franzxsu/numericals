@@ -56,7 +56,12 @@ def matrix_operation():
 
     print(matrix1)
 
-    # matrix1_obj = Matrix.from_json(matrix1)
+    matrix1_obj = Matrix.from_json(str(matrix1))
+    matrix2_obj = Matrix.from_json(str(matrix2))
+
+    result = matrix1_obj.matrix_operation(matrix2_obj, operation)
+    return jsonify({"result": result})
+
     # matrix2_obj = Matrix.from_json(matrix2)
     # print(matrix1_obj)
     # result = newton_raphson_method()

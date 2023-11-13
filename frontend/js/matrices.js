@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const maxMatrixSize = 7;
     const rowInput = document.getElementById('matrixrow');
     const columnInput = document.getElementById('matrixcolumn');
+    const matrixLabels = document.getElementsByClassName("matrix-label")
+
+    updateMatrixSize()
 
     // WILL CHANGE SIZE OF MATRIX DEPENDING ON ZEEEE INPUT ^^^^
     function updateMatrixSize() {
@@ -13,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateMatrix(matrixId, rows, columns) {
+
         const matrix = document.getElementById(matrixId);
+        console.log(matrixId);
         matrix.innerHTML = '';
 
         for (let r = 1; r <= rows; r++) {

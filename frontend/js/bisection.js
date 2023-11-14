@@ -54,16 +54,30 @@ function populateTable(res) {
 
     table.classList.remove("hidden");
     res = res.RESULT;
-    for (const item of res) {
+    for (const item of res){
         const newRow = document.createElement('tr');
         newRow.classList.add("row");
-        for (const key in item) {
-            if (item.hasOwnProperty(key)) {
-                const cell = document.createElement('td');
-                cell.innerHTML = item[key];
-                newRow.appendChild(cell);
-            }
-        }
+        const iteration = document.createElement('td');
+        const a = document.createElement('td');
+        const b = document.createElement('td');
+        const midpoint = document.createElement('td');
+        const funcmidpoint = document.createElement('td');
+        const error = document.createElement('td');
+
+        iteration.innerHTML = item.iteration;
+        a.innerHTML = item.a;
+        b.innerHTML = item.b;
+        midpoint.innerHTML = item.mid;
+        funcmidpoint.innerHTML = item.funcmid;
+        error.innerHTML = item.error;
+
+        newRow.appendChild(iteration);
+        newRow.appendChild(a);
+        newRow.appendChild(b);
+        newRow.appendChild(midpoint);
+        newRow.appendChild(funcmidpoint);
+        newRow.appendChild(error);
+
         tableBody.appendChild(newRow);
     }
 }

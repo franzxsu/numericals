@@ -30,11 +30,13 @@ def newtonraphson():
     data = request.json
     function = data.get('function')
     x = float(data.get('x'))
+    error = float(data.get('error'))
 
     print("FUNCTION: " + str(function))
     print("x: " + str(x))
+    print(error)
 
-    result = newton_raphson_method(str(function), x)
+    result = newton_raphson_method(str(function), x, error)
     return jsonify({"result": result})
 
 

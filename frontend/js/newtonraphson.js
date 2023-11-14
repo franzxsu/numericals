@@ -10,7 +10,7 @@ calcButton.addEventListener("click", calculateButtonClicked);
 clearButton.addEventListener("click", clearButtonClicked);
 
 function calculateButtonClicked(){
-    const func = document.getElementById("function").value.replace(/\^/g, '**');;
+    const func = helper.convertFunctionString(document.getElementById("function").value)
     const x = document.getElementById("xvalue").value;
     const error = document.getElementById("error").value;
     

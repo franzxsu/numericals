@@ -4,6 +4,7 @@
 # https://www.stratascratch.com/blog/8-python-libraries-for-math-data-analysis-ml-and-dl/#:~:text=These%20libraries%20include%20NumPy%2C%20SciPy,to%20build%20and%20train%20models.
 from ..calculations_helper import *
 
+
 # FUNCTION BLUEPRINT
 
 
@@ -23,14 +24,24 @@ def perform_calculation(numbers, method):
 # – else if f(t) *f (b) < 0, there exist a root between t and b
 # Repeat above three steps until f(t) = 0.
 def bisection_method(func_str, x0, x1, tol=1e-5, max_iter=50):
+    steps = []
     func = lambda x: eval(func_str)
 
-    step = 1
+    step = 0
     print('\n\n*** BISECTION METHOD IMPLEMENTATION ***')
     condition = True
     while condition and step <= max_iter:
         x2 = (x0 + x1) / 2
         print('Iteration-%d, x2 = %0.6f and f(x2) = %0.6f' % (step, x2, func(x2)))
+
+        steps.append({
+            'iteration': step,
+            'a': round(x2, 5),
+            'b': round(x1, 5),
+            'mid': round(x0, 5),
+            'funcmid': round(func(x0), 4),
+            'error': round(abs(func(x2)), 5)
+        })
 
         if func(x0) * func(x2) < 0:
             x1 = x2
@@ -45,8 +56,7 @@ def bisection_method(func_str, x0, x1, tol=1e-5, max_iter=50):
         return None
 
     print('\nRequired Root is : %0.8f' % x2)
-    return x2
-
+    return steps
 
 
 def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):

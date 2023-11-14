@@ -21,15 +21,29 @@ async function calculateButtonClicked(){
 }
 
 function clearButtonClicked(){
-    //TODO: add functionality that clears input, gawin ko mamaya since im using the pre made inputs for testing
-    tableBody.innerHTML = "";
-    table.classList.add("hidden");
+    //clearInputs TODO
+    removeErrorMessage();
+    clearTable();
 }
 
 function populateTable(res){
+    if (res.STATUS == "ERROR"){
+        clearTable();
+        removeErrorMessage();
+
+        const errorElement = document.createElement('h1');
+        errorElement.id = 'error-message';
+        const errorMessage = res.STATUS + ": " + res.RESULT;
+        errorElement.innerHTML = errorMessage;
+
+        const parentElement = table.parentElement;
+        parentElement.insertBefore(errorElement, table);
+        return;
+    }
+    removeErrorMessage();
     table.classList.remove("hidden");
+    res = res.RESULT
     tableBody.innerHTML = "";
-    console.log(res);
     for (const item of res){
         const newRow = document.createElement('tr');
         newRow.classList.add("row");
@@ -55,5 +69,18 @@ function populateTable(res){
         newRow.appendChild(error);
 
         tableBody.appendChild(newRow);
+    }
+}
+
+function clearTable(){
+    console.log("TABLE SHOULD BE CLEARED")
+    tableBody.innerHTML = "";
+    table.classList.add("hidden");
+}
+
+function removeErrorMessage() {
+    const existingError = document.querySelector('#error-message');
+    if (existingError) {
+        existingError.remove();
     }
 }

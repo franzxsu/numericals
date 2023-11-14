@@ -1,4 +1,5 @@
 # here are the actual fuckin methods
+from flask import jsonify
 
 # https://towardsdatascience.com/root-finding-methods-from-scratch-in-python-84040c81a8ba?gi=22cd7608efb5
 # https://www.stratascratch.com/blog/8-python-libraries-for-math-data-analysis-ml-and-dl/#:~:text=These%20libraries%20include%20NumPy%2C%20SciPy,to%20build%20and%20train%20models.
@@ -53,10 +54,16 @@ def bisection_method(func_str, x0, x1, tol=1e-5, max_iter=50):
 
     if step > max_iter:
         print("Max iterations reached. No root found.")
-        return None
+        return {
+            'STATUS': 'ERROR',
+            'RESULT': 'MAX ITERATIONS REACHED, NO ROOT FOUND'
+        }
 
     print('\nRequired Root is : %0.8f' % x2)
-    return steps
+    return {
+        'STATUS': 'SUCCESS',
+        'RESULT': steps
+    }
 
 
 def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):

@@ -15,12 +15,6 @@ async function calculateButtonClicked(){
     const lowerBound = document.getElementById("lowerbound").value;
     const upperBound = document.getElementById("upperbound").value;
     const error = document.getElementById("error").value;
-
-    console.log(func);
-    console.log(typeof func);
-    console.log(lowerBound);
-    console.log(upperBound);
-    console.log(error);
     
     const result = await calculate.bisection(func, lowerBound, upperBound, error);
     populateTable(result);

@@ -38,6 +38,7 @@ function handleError(res) {
 }
 
 function clearButtonClicked() {
+    //clear inputs todo
     removeErrorMessage();
     clearTable();
 }

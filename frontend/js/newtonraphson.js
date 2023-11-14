@@ -9,32 +9,48 @@ const tableBody = document.getElementById("resultTable");
 calcButton.addEventListener("click", calculateButtonClicked);
 clearButton.addEventListener("click", clearButtonClicked);
 
-async function calculateButtonClicked(){
-    console.log("calculatebtn");
+function calculateButtonClicked(){
     const func = document.getElementById("function").value.replace(/\^/g, '**');;
     const x = document.getElementById("xvalue").value;
     const error = document.getElementById("error").value;
-
-    console.log(func);
-    console.log(typeof func);
-    console.log(x);
-    console.log(error);
     
-    const result = await calculate.newtonraphson(func, x, error);
-    console.log(result);
-    populateTable(result);
+    calculateNewtonRaphson(func, x, error)
+        .then(populateTable)
+        .catch(handleError);
+}
+
+function calculateNewtonRaphson(func, x, error){
+    return calculate.newtonraphson(func, x, error)
+}
+
+function handleError(res) {
+    clearTable();
+    removeErrorMessage();
+
+    const errorElement = document.createElement('h1');
+    errorElement.id = 'error-message';
+    const errorMessage = res.STATUS + ": " + res.RESULT;
+    errorElement.innerHTML = errorMessage;
+
+    const parentElement = table.parentElement;
+    parentElement.insertBefore(errorElement, table);
 }
 
 function clearButtonClicked(){
     //TODO: add functionality that clears input, gawin ko mamaya since im using the pre made inputs for testing
-    tableBody.innerHTML = "";
-    table.classList.add("hidden");
+    removeErrorMessage();
+    clearTable();
 }
 
 function populateTable(res){
+    removeErrorMessage();
+    clearTable();
+    if (res.STATUS === "ERROR") {
+        handleError(res);
+        return;
+    }
     table.classList.remove("hidden");
-    tableBody.innerHTML = "";
-    console.log(res);
+    res = res.RESULT;
     for (const item of res){
         const newRow = document.createElement('tr');
         newRow.classList.add("row");
@@ -57,5 +73,15 @@ function populateTable(res){
         newRow.appendChild(error);
 
         tableBody.appendChild(newRow);
+    }
+}
+function clearTable() {
+    tableBody.innerHTML = "";
+    table.classList.add("hidden");
+}
+function removeErrorMessage() {
+    const existingError = document.querySelector('#error-message');
+    if (existingError) {
+        existingError.remove();
     }
 }

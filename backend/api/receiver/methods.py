@@ -11,14 +11,16 @@ numerical_methods_blueprint = Blueprint('numerical_methods', __name__)
 def bisection():
     data = request.json
     function = data.get('function')
-    lower_bound = data.get('lb')
-    upper_bound = data.get('ub')
+    lower_bound = float(data.get('lb'))
+    upper_bound = float(data.get('ub'))
+    error = float(data.get('error'))
 
     print("FUNCTION: " + str(function))
     print("LOWER BOUND: " + str(lower_bound))
     print("UPPER B: " + str(upper_bound))
+    print(error)
 
-    result = bisection_method(str(function), int(lower_bound), int(upper_bound))
+    result = bisection_method(str(function), lower_bound, upper_bound, error)
 
     return jsonify({"result": result})
 

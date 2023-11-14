@@ -50,5 +50,4 @@ from backend.api.services.midterms.matrix import *
 # print("DIFFERENCE IS: "+str(matrix_diff))
 
 steps = bisection_method("x**2-1", -1.99,2)
-for i in steps:
-    print(i)
+print(steps)

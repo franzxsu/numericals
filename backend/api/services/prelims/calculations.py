@@ -1,4 +1,5 @@
 # here are the actual fuckin methods
+from flask import jsonify
 
 # https://towardsdatascience.com/root-finding-methods-from-scratch-in-python-84040c81a8ba?gi=22cd7608efb5
 # https://www.stratascratch.com/blog/8-python-libraries-for-math-data-analysis-ml-and-dl/#:~:text=These%20libraries%20include%20NumPy%2C%20SciPy,to%20build%20and%20train%20models.
@@ -27,13 +28,10 @@ def bisection_method(func_str, x0, x1, tol=1e-5, max_iter=50):
     steps = []
     func = lambda x: eval(func_str)
 
-    step = 0
-    print('\n\n*** BISECTION METHOD IMPLEMENTATION ***')
+    step = 1
     condition = True
     while condition and step <= max_iter:
         x2 = (x0 + x1) / 2
-        print('Iteration-%d, x2 = %0.6f and f(x2) = %0.6f' % (step, x2, func(x2)))
-
         steps.append({
             'iteration': step,
             'a': round(x2, 5),
@@ -53,26 +51,36 @@ def bisection_method(func_str, x0, x1, tol=1e-5, max_iter=50):
 
     if step > max_iter:
         print("Max iterations reached. No root found.")
-        return None
+        return {
+            'STATUS': 'ERROR',
+            'RESULT': 'MAX ITERATIONS REACHED, NO ROOT FOUND'
+        }
 
     print('\nRequired Root is : %0.8f' % x2)
-    return steps
+    return {
+        'STATUS': 'SUCCESS',
+        'RESULT': steps
+    }
 
 
-def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
+def newton_raphson_method(func, x0, tol=1e-5, max_iter=50):
     steps = []
     x_val = x0
     deriv = get_derivative(func)
     error = 0
     x = symbols('x')
     func = eval(func)
-    for i in range(max_iter):
+
+    step = 1
+    print('\n\n*** NEWTON-RAPHSON METHOD IMPLEMENTATION ***')
+    condition = True
+    while condition and step <= max_iter:
         f_x = func.subs('x', x_val)
         f_prime_x = deriv.subs('x', x_val)
 
         x_new = x_val - f_x / f_prime_x
         steps.append({
-            'iteration': str(i),
+            'iteration': step,
             'x': round(eval(str(x_val)), 4),
             'funcOfX': round(eval(str(f_x)), 4),
             'funcPrimeOfX': round(eval(str(f_prime_x)), 4),
@@ -84,7 +92,21 @@ def newton_raphson_method(func, x0, tol=1e-5, max_iter=100):
             break
 
         x_val = x_new
-    return steps
+        step += 1
+        condition = error > tol
+
+    if step > max_iter:
+        print("Max iterations reached. No convergence.")
+        return {
+            'STATUS': 'ERROR',
+            'RESULT': 'MAX ITERATIONS REACHED, NO CONVERGENCE'
+        }
+
+    print('\nRequired Root is: %0.8f' % x_val)
+    return {
+        'STATUS': 'SUCCESS',
+        'RESULT': steps
+    }
 
 
 def linear_interpolation(x_values, y_values, x):

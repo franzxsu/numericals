@@ -29,12 +29,12 @@ def bisection():
 def newtonraphson():
     data = request.json
     function = data.get('function')
-    x = data.get('x')
+    x = float(data.get('x'))
 
     print("FUNCTION: " + str(function))
     print("x: " + str(x))
 
-    result = newton_raphson_method(str(function), int(x))
+    result = newton_raphson_method(str(function), x)
     return jsonify({"result": result})
 
 

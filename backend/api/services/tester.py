@@ -49,5 +49,8 @@ from backend.api.services.midterms.matrix import *
 # print("SUM IS: "+str(matrix_sum))
 # print("DIFFERENCE IS: "+str(matrix_diff))
 
-steps = bisection_method("x**2-1", -1.99,2)
+steps = newton_raphson_method("x**2-2", 1)
+print(steps)
+
+steps = bisection_method("x**2-2", 1,2)
 print(steps)

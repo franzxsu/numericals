@@ -1,13 +1,17 @@
 import * as calculate from "./calculate.js";
-
-document.addEventListener('DOMContentLoaded', function() {
-    const maxMatrixSize = 7;
+const maxMatrixSize = 7;
     const rowInput = document.getElementById('matrixrow');
     const columnInput = document.getElementById('matrixcolumn');
     const matrixLabels = document.getElementsByClassName('matrix-label');
     const calculateBtn = document.getElementById('calculate');
     const matrixOperation = document.getElementById('selectOptionsMatrix');
-
+    const matrix2Label = document.querySelector('.input-matrix .matrix-label:nth-child(3)'); // Label for Matrix 2
+    const matrix2 = document.getElementById('matrix2'); // Matrix 2
+    handleMatrixOperationChange();
+    matrixOperation.addEventListener('change', handleMatrixOperationChange);    
+    document.addEventListener('DOMContentLoaded', function() {
+    
+    
     calculateBtn.addEventListener("click", function() {
         computeMatrices(matrixOperation.value);
     });
@@ -94,4 +98,64 @@ function updateMatrix(matrixId, rows, columns) {
         }
         matrix.appendChild(matrixRow);
     }
+}
+
+function handleMatrixOperationChange() {
+    switch (matrixOperation.value) {
+        case 'add':
+            handleAddition();
+            break;
+        case 'subtract':
+            handleSubtraction();
+            break;
+        case 'multiply':
+            handleMultiplication();
+            break;
+        case 'scalar-multiplication':
+            handleScalarMultiplication();
+            break;
+        case 'row-interchange':
+            handleRowInterchange();
+            break;
+        case 'inverse':
+            handleInverse();
+            break;
+        case 'determinant':
+            handleDeterminant();
+            break;
+        default:
+            showSecondMatrix();
+    }
+}
+
+function hideSecondMatrix() {
+    document.querySelector('.input-matrix .matrix-label:nth-child(3)').classList.add('hidden');
+    document.getElementById('matrix2').classList.add('hidden');
+}
+
+function showSecondMatrix() {
+    document.querySelector('.input-matrix .matrix-label:nth-child(3)').classList.remove('hidden');
+    document.getElementById('matrix2').classList.remove('hidden');
+}
+
+function handleAddition(){
+    showSecondMatrix();
+}
+function handleSubtraction(){
+    showSecondMatrix();
+}
+function handleMultiplication(){
+    showSecondMatrix();
+}
+function  handleScalarMultiplication(){
+    hideSecondMatrix();
+}
+function handleRowInterchange(){
+    hideSecondMatrix();
+}
+function handleInverse(){
+    hideSecondMatrix();
+}
+function handleDeterminant(){
+    hideSecondMatrix();
 }

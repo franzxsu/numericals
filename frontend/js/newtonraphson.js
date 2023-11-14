@@ -45,7 +45,7 @@ function clearButtonClicked(){
 function populateTable(res){
     removeErrorMessage();
     clearTable();
-    if (res.STATUS === "ERROR") {
+    if (res.STATUS == "ERROR") {
         handleError(res);
         return;
     }

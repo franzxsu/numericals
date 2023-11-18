@@ -5,8 +5,8 @@ const maxMatrixSize = 7;
     const matrixLabels = document.getElementsByClassName('matrix-label');
     const calculateBtn = document.getElementById('calculate');
     const matrixOperation = document.getElementById('selectOptionsMatrix');
-    const matrix2Label = document.querySelector('.input-matrix .matrix-label:nth-child(3)'); // Label for Matrix 2
-    const matrix2 = document.getElementById('matrix2'); // Matrix 2
+    const matrix2Label = document.querySelector('.input-matrix .matrix-label:nth-child(3)');
+    const matrix2 = document.getElementById('matrix2');
     handleMatrixOperationChange();
     matrixOperation.addEventListener('change', handleMatrixOperationChange);    
     document.addEventListener('DOMContentLoaded', function() {
@@ -52,8 +52,6 @@ function updateMatrixSize() {
 function computeMatrices(operation) {
     const matrix1 = getMatrixValues('matrix1');
     const matrix2 = getMatrixValues('matrix2');
-
-    console.log(matrix1);
 
     console.log(calculate.addMatrices(matrix1, matrix2, operation));
 }
